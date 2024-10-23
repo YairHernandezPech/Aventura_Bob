@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdrj6l1mw7uiq"
+path="res://.godot/imported/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3-981d1808f583502e28c20de069d935e0.mp3str"
+
+[deps]
+
+source_file="res://Animations/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3"
+dest_files=["res://.godot/imported/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3-981d1808f583502e28c20de069d935e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

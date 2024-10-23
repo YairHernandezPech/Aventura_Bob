@@ -1,0 +1,198 @@
+[gd_scene load_steps=20 format=3 uid="uid://duvweoq51th6j"]
+
+[ext_resource type="Texture2D" uid="uid://hqnj7ctk5qx8" path="res://Animations/City3/City2/Sky.png" id="1_y4d8m"]
+[ext_resource type="Texture2D" uid="uid://cwaes3ix1odj3" path="res://Animations/City3/City2/back.png" id="2_213f3"]
+[ext_resource type="Texture2D" uid="uid://cix43b38nam6d" path="res://Animations/City3/City2/houses3.png" id="3_ypndp"]
+[ext_resource type="Texture2D" uid="uid://ctkl514j3xpr6" path="res://Animations/City3/City2/houses1.png" id="4_kpdno"]
+[ext_resource type="Texture2D" uid="uid://bj3ciipkk0rar" path="res://Animations/City3/City2/minishop&callbox.png" id="5_qevpj"]
+[ext_resource type="Texture2D" uid="uid://c27d3614php8m" path="res://Animations/City3/City2/road&lamps.png" id="6_j05kr"]
+[ext_resource type="PackedScene" uid="uid://bjyr7ugpbr2nn" path="res://Players/player.tscn" id="7_h3xcn"]
+[ext_resource type="Script" path="res://Players/suelo.gd" id="8_56ox7"]
+[ext_resource type="PackedScene" uid="uid://df7vn437m54hd" path="res://Players/Life.tscn" id="9_eu51r"]
+[ext_resource type="PackedScene" uid="uid://i1hbj6h8xal" path="res://Players/coin.tscn" id="10_kf06o"]
+[ext_resource type="PackedScene" uid="uid://chv46jp5jx7ju" path="res://Players/wolfs.tscn" id="10_yfhv6"]
+[ext_resource type="PackedScene" uid="uid://bvwlv2r4unk8w" path="res://Players/portal_2.tscn" id="11_3flng"]
+[ext_resource type="PackedScene" uid="uid://bokaadbihusu2" path="res://Players/Score.tscn" id="11_3kpjv"]
+[ext_resource type="PackedScene" uid="uid://detvy0jhikxkm" path="res://Players/jefe_1.tscn" id="12_q8rvx"]
+[ext_resource type="PackedScene" uid="uid://qc1f0afprc53" path="res://Players/Time1.tscn" id="14_7vnwk"]
+[ext_resource type="AudioStream" uid="uid://cdrj6l1mw7uiq" path="res://Animations/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3" id="15_tkda4"]
+[ext_resource type="Script" path="res://Players/audio_fondo.gd" id="16_nt741"]
+[ext_resource type="PackedScene" uid="uid://c5xhkphfun437" path="res://Players/pause.tscn" id="18_ix01i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1mp4"]
+size = Vector2(6931.25, 36)
+
+[node name="Mundo2" type="Node2D"]
+
+[node name="Fondo" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer"]
+position = Vector2(-11, -83)
+scale = Vector2(0.605729, 0.676852)
+texture = ExtResource("1_y4d8m")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer2"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_213f3")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer3"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ypndp")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer4"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_kpdno")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer5"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_qevpj")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer6"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_j05kr")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("7_h3xcn")]
+position = Vector2(54, 564)
+
+[node name="Wolf" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(19, -15)
+
+[node name="Wolf2" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(381, -23)
+
+[node name="Wolf3" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(801, -23)
+
+[node name="Wolf4" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(1843, -19)
+
+[node name="Wolf5" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(2273, -18)
+
+[node name="Wolf6" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(1352, -21)
+
+[node name="Wolf7" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(2512, -21)
+
+[node name="Wolf8" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(2890, -17)
+
+[node name="Wolf9" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(3124, -17)
+
+[node name="Wolf10" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(3495, -20)
+
+[node name="Wolf11" parent="." instance=ExtResource("10_yfhv6")]
+position = Vector2(3849, -25)
+
+[node name="Jefe1" parent="." instance=ExtResource("12_q8rvx")]
+position = Vector2(3795, -6)
+
+[node name="Coin" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(-404, -15)
+
+[node name="Coin2" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(-6, -15)
+
+[node name="Coin3" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(229, -105)
+
+[node name="Coin4" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(278, -105)
+
+[node name="Coin5" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(330, -105)
+
+[node name="Coin6" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(621, -19)
+
+[node name="Coin7" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(763, -119)
+
+[node name="Coin8" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(962, -20)
+
+[node name="Coin9" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(1206, -21)
+
+[node name="Coin10" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(1415, -132)
+
+[node name="Coin11" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(1748, -113)
+
+[node name="Coin12" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(2323, -61)
+
+[node name="Coin13" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(2697, -22)
+
+[node name="Coin14" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(3274, -49)
+
+[node name="Coin15" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(3824, -15)
+
+[node name="Coin16" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(4177, -116)
+
+[node name="Coin17" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(4233, -121)
+
+[node name="Coin18" parent="." instance=ExtResource("10_kf06o")]
+position = Vector2(4288, -116)
+
+[node name="Portal2" parent="." instance=ExtResource("11_3flng")]
+position = Vector2(4183, 40)
+
+[node name="Score" parent="." instance=ExtResource("11_3kpjv")]
+
+[node name="Life" parent="." instance=ExtResource("9_eu51r")]
+
+[node name="Time" parent="." instance=ExtResource("14_7vnwk")]
+
+[node name="Suelo" type="StaticBody2D" parent="."]
+script = ExtResource("8_56ox7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
+position = Vector2(3459.38, 631)
+shape = SubResource("RectangleShape2D_d1mp4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_tkda4")
+max_distance = 2e+06
+script = ExtResource("16_nt741")
+
+[node name="Pause" parent="." instance=ExtResource("18_ix01i")]

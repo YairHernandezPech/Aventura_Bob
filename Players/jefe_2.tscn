@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd85dg1xsccnc"]
+
+[ext_resource type="Texture2D" uid="uid://8tjw7skmmaiv" path="res://Animations/yellowNinja - attack.png" id="1_2372p"]
+[ext_resource type="Script" path="res://Players/jefe_2.gd" id="1_b40fq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30f8a"]
+radius = 28.0
+height = 104.0
+
+[sub_resource type="Animation" id="Animation_elqfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_fosbc"]
+resource_name = "atack"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 19, 19, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygsxb"]
+_data = {
+"RESET": SubResource("Animation_elqfn"),
+"atack": SubResource("Animation_fosbc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh43j"]
+
+[node name="Jefe2" type="CharacterBody2D"]
+script = ExtResource("1_b40fq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(995, 513)
+scale = Vector2(3.4375, 3.06836)
+texture = ExtResource("1_2372p")
+hframes = 20
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(998, 562)
+shape = SubResource("CapsuleShape2D_30f8a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ygsxb")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="poder" type="CollisionShape2D" parent="."]
+position = Vector2(808, 545)
+shape = SubResource("RectangleShape2D_hh43j")

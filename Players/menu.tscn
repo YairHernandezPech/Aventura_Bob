@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd62v1tu73t3o"]
+
+[ext_resource type="Script" path="res://Players/menu.gd" id="1_5j20j"]
+[ext_resource type="Texture2D" uid="uid://cojs6t0sdlxiw" path="res://Animations/wallpaper-8257343_640.png" id="2_mj05r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjmfp"]
+bg_color = Color(0.14902, 0.678431, 0.694118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuisk"]
+bg_color = Color(0.150449, 0.679674, 0.694935, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5j20j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -37.0
+offset_right = 139.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_wjmfp")
+text = "Start Game"
+
+[node name="QuitButton2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_iuisk")
+text = "Quit"
+
+[node name="487c9124268a9Da9d6Bc45e3c4a6Dc2d" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(572, 325)
+scale = Vector2(1.9125, 1.6)
+texture = ExtResource("2_mj05r")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton2" to="." method="_on_quit_button_2_pressed"]

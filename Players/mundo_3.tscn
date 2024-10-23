@@ -1,0 +1,223 @@
+[gd_scene load_steps=21 format=3 uid="uid://4gv1l8vj10q4"]
+
+[ext_resource type="Texture2D" uid="uid://6qqyjti7jvlt" path="res://Animations/City3/City1/Sky.png" id="1_coikg"]
+[ext_resource type="Texture2D" uid="uid://bn5g06ac8cupn" path="res://Animations/City3/City1/buildings.png" id="2_owqb2"]
+[ext_resource type="Texture2D" uid="uid://cfu0ggaxdcuns" path="res://Animations/City3/City1/wall2.png" id="3_3q7b5"]
+[ext_resource type="Texture2D" uid="uid://334ikslqog24" path="res://Animations/City3/City1/wall1.png" id="4_rbs5p"]
+[ext_resource type="Texture2D" uid="uid://cf6cs2gg1cskh" path="res://Animations/City3/City1/boxes&container.png" id="5_daqxe"]
+[ext_resource type="Texture2D" uid="uid://x6genqxg5sue" path="res://Animations/City3/City1/wheels&hydrant.png" id="6_hg5a1"]
+[ext_resource type="Texture2D" uid="uid://banhqpxkipvcc" path="res://Animations/City3/City1/road&border.png" id="7_xie0k"]
+[ext_resource type="PackedScene" uid="uid://bjyr7ugpbr2nn" path="res://Players/player.tscn" id="8_clouy"]
+[ext_resource type="Script" path="res://Players/suelo.gd" id="9_bnoqq"]
+[ext_resource type="PackedScene" uid="uid://bokaadbihusu2" path="res://Players/Score.tscn" id="9_bvld8"]
+[ext_resource type="PackedScene" uid="uid://chv46jp5jx7ju" path="res://Players/wolfs.tscn" id="9_kij1v"]
+[ext_resource type="PackedScene" uid="uid://detvy0jhikxkm" path="res://Players/jefe_1.tscn" id="10_kfiri"]
+[ext_resource type="PackedScene" uid="uid://df7vn437m54hd" path="res://Players/Life.tscn" id="10_oeivl"]
+[ext_resource type="PackedScene" uid="uid://i1hbj6h8xal" path="res://Players/coin.tscn" id="11_1f575"]
+[ext_resource type="AudioStream" uid="uid://cdrj6l1mw7uiq" path="res://Animations/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3" id="12_tcba8"]
+[ext_resource type="Script" path="res://Players/audio_fondo.gd" id="13_63cut"]
+[ext_resource type="PackedScene" uid="uid://qc1f0afprc53" path="res://Players/Time1.tscn" id="14_hdu65"]
+[ext_resource type="PackedScene" uid="uid://c5xhkphfun437" path="res://Players/pause.tscn" id="18_f5qw6"]
+[ext_resource type="PackedScene" uid="uid://dd85dg1xsccnc" path="res://Players/jefe_2.tscn" id="19_vp1xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3npy7"]
+size = Vector2(7444.25, 36)
+
+[node name="Mundo3" type="Node2D"]
+
+[node name="Fondo" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer"]
+scale = Vector2(0.606, 0.606)
+texture = ExtResource("1_coikg")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer2"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_owqb2")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer3"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_3q7b5")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer4"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_rbs5p")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer5"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_daqxe")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer6"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_hg5a1")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/ParallaxLayer7"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_xie0k")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("8_clouy")]
+
+[node name="Wolf" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(-393, -11)
+
+[node name="Wolf2" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(-119, -9)
+
+[node name="Wolf3" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(72, -4)
+
+[node name="Wolf4" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(457, -2)
+
+[node name="Wolf5" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(841, -3)
+
+[node name="Wolf6" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(1418, -8)
+
+[node name="Wolf7" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(1962, -5)
+
+[node name="Wolf8" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(2381, -9)
+
+[node name="Wolf9" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(2810, -7)
+
+[node name="Wolf10" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(3185, 1)
+
+[node name="Wolf11" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(3670, -2)
+
+[node name="Wolf12" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(4161, -7)
+
+[node name="Wolf13" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(4519, -2)
+
+[node name="Wolf14" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(4915, -2)
+
+[node name="Wolf15" parent="." instance=ExtResource("9_kij1v")]
+position = Vector2(5199, 0)
+
+[node name="Jefe1" parent="." instance=ExtResource("10_kfiri")]
+position = Vector2(5259, -8)
+
+[node name="Jefe2" parent="." instance=ExtResource("10_kfiri")]
+position = Vector2(5694, 5)
+
+[node name="Coin" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(-661, -59)
+
+[node name="Coin2" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(-72, -24)
+
+[node name="Coin3" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(3, -24)
+
+[node name="Coin4" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(326, -64)
+
+[node name="Coin5" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(713, -99)
+
+[node name="Coin6" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(868, -19)
+
+[node name="Coin7" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(988, -14)
+
+[node name="Coin8" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(1375, -62)
+
+[node name="Coin9" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(1714, -158)
+
+[node name="Coin10" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(2269, -27)
+
+[node name="Coin11" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(2683, -110)
+
+[node name="Coin12" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(2963, -11)
+
+[node name="Coin13" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(3559, -40)
+
+[node name="Coin14" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(4015, -51)
+
+[node name="Coin15" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(4384, -138)
+
+[node name="Coin16" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(4754, -139)
+
+[node name="Coin17" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(5341, -35)
+
+[node name="Coin18" parent="." instance=ExtResource("11_1f575")]
+position = Vector2(5793, -46)
+
+[node name="Score" parent="." instance=ExtResource("9_bvld8")]
+
+[node name="CanvasLayer" parent="Score" instance=ExtResource("10_oeivl")]
+
+[node name="Life" parent="." instance=ExtResource("10_oeivl")]
+
+[node name="Time" parent="." instance=ExtResource("14_hdu65")]
+
+[node name="Suelo" type="StaticBody2D" parent="."]
+script = ExtResource("9_bnoqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
+position = Vector2(3715.88, 631)
+shape = SubResource("RectangleShape2D_3npy7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_tcba8")
+max_distance = 2e+06
+script = ExtResource("13_63cut")
+
+[node name="Pause" parent="." instance=ExtResource("18_f5qw6")]
+
+[node name="Jefe4" parent="." instance=ExtResource("19_vp1xf")]
+position = Vector2(6239, 4)

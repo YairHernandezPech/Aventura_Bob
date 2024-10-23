@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://n4wt50tw87kt"]
+
+[ext_resource type="Script" path="res://Players/mundo_1.gd" id="1_lrisr"]
+[ext_resource type="Texture2D" uid="uid://b5r2ir6eo7met" path="res://Animations/City3/Bright/sky.png" id="1_rnhvh"]
+[ext_resource type="Texture2D" uid="uid://btoxh5j4pnatp" path="res://Animations/City3/Bright/houses3.png" id="2_raw50"]
+[ext_resource type="Texture2D" uid="uid://cik48lkvwjoju" path="res://Animations/City3/Bright/houded2.png" id="3_nc4i8"]
+[ext_resource type="Texture2D" uid="uid://dxruubn7dj3yl" path="res://Animations/City3/Bright/houses1.png" id="4_v1ddg"]
+[ext_resource type="Texture2D" uid="uid://ch5i4eunlbliu" path="res://Animations/City3/Bright/road.png" id="5_ja1kr"]
+[ext_resource type="Texture2D" uid="uid://dmahlb7sdpd88" path="res://Animations/City3/Bright/crosswalk.png" id="6_837jt"]
+[ext_resource type="PackedScene" uid="uid://bjyr7ugpbr2nn" path="res://Players/player.tscn" id="7_d70n7"]
+[ext_resource type="AudioStream" uid="uid://cdrj6l1mw7uiq" path="res://Animations/Kevin MacLeod - Pixelland  NO COPYRIGHT 8-bit Music.mp3" id="8_kixre"]
+[ext_resource type="Script" path="res://Players/suelo.gd" id="9_0p0r1"]
+[ext_resource type="Script" path="res://Players/audio_fondo.gd" id="9_w48xn"]
+[ext_resource type="PackedScene" uid="uid://chv46jp5jx7ju" path="res://Players/wolfs.tscn" id="10_olotc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okq0w"]
+size = Vector2(2334, 53)
+
+[node name="Mundo1" type="Node2D"]
+script = ExtResource("1_lrisr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kixre")
+max_distance = 2e+06
+script = ExtResource("9_w48xn")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-37, -325)
+scale = Vector2(0.619271, 0.960185)
+texture = ExtResource("1_rnhvh")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_raw50")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_nc4i8")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_v1ddg")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_ja1kr")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_837jt")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("9_0p0r1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1139, 635.5)
+shape = SubResource("RectangleShape2D_okq0w")
+
+[node name="Player" parent="." instance=ExtResource("7_d70n7")]
+
+[node name="Wolf" parent="." instance=ExtResource("10_olotc")]

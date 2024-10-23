@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bokaadbihusu2"]
+
+[ext_resource type="Script" path="res://Players/score.gd" id="1_2f7f1"]
+[ext_resource type="Texture2D" uid="uid://qhehwy253snw" path="res://Animations/coin3_16x16.png" id="2_ps5qy"]
+
+[node name="Score" type="CanvasLayer"]
+script = ExtResource("1_2f7f1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 53.0
+offset_top = 9.0
+offset_right = 145.0
+offset_bottom = 53.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(76, 30)
+scale = Vector2(2.90625, 2.28125)
+texture = ExtResource("2_ps5qy")
+hframes = 14
+
+[node name="CollectionCoins" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 9.0
+offset_right = 146.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "00"

@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://cedm2iur88vm2"]
+
+[ext_resource type="Script" path="res://Players/portal.gd" id="1_n3o3f"]
+[ext_resource type="Texture2D" uid="uid://drtdqpfv3gg2g" path="res://Animations/Purple Portal Sprite Sheet.png" id="1_spky1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5vt0"]
+radius = 18.0
+height = 114.0
+
+[sub_resource type="Animation" id="Animation_ays1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_qncx3"]
+resource_name = "portal"
+length = 0.22
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qcxbr"]
+_data = {
+"RESET": SubResource("Animation_ays1r"),
+"portal": SubResource("Animation_qncx3")
+}
+
+[node name="Portal" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_n3o3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(1033, 534)
+rotation = 3.1206
+scale = Vector2(5.30082, 3.41073)
+texture = ExtResource("1_spky1")
+hframes = 8
+vframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1036, 518)
+shape = SubResource("CapsuleShape2D_o5vt0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qcxbr")
+}
+autoplay = "portal"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

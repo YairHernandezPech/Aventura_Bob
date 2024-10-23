@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://bjyr7ugpbr2nn"]
+
+[ext_resource type="Script" path="res://Players/player.gd" id="1_4t48t"]
+[ext_resource type="Texture2D" uid="uid://1qay1oecx3eu" path="res://Animations/Cat-Sheet.png" id="1_p56sy"]
+[ext_resource type="Script" path="res://Players/cameraPlayer.gd" id="3_rw6y2"]
+[ext_resource type="AudioStream" uid="uid://bsclhik4rxlen" path="res://Animations/Efecto de Sonido Salto.mp3" id="4_3218a"]
+
+[sub_resource type="Animation" id="Animation_kdy1j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [34]
+}
+
+[sub_resource type="Animation" id="Animation_js6px"]
+resource_name = "dead"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291]
+}
+
+[sub_resource type="Animation" id="Animation_hknuw"]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_4jma0"]
+resource_name = "jumb"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [152, 153, 154, 155, 160, 161, 162, 163]
+}
+
+[sub_resource type="Animation" id="Animation_kdd2c"]
+resource_name = "resurrect"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307]
+}
+
+[sub_resource type="Animation" id="Animation_8kc3i"]
+resource_name = "run"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukoii"]
+_data = {
+"RESET": SubResource("Animation_kdy1j"),
+"dead": SubResource("Animation_js6px"),
+"idle": SubResource("Animation_hknuw"),
+"jumb": SubResource("Animation_4jma0"),
+"resurrect": SubResource("Animation_kdd2c"),
+"run": SubResource("Animation_8kc3i")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xaoa"]
+size = Vector2(112, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np6lw"]
+size = Vector2(113, 73.5)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(58, 588)
+script = ExtResource("1_4t48t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, -41.125)
+scale = Vector2(6, 5.42969)
+texture = ExtResource("1_p56sy")
+hframes = 8
+vframes = 51
+frame = 34
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ukoii")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_rw6y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28, 7.5)
+shape = SubResource("RectangleShape2D_8xaoa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28.5, 7.25)
+shape = SubResource("RectangleShape2D_np6lw")
+
+[node name="GameOver" type="Label" parent="."]
+offset_left = -381.0
+offset_top = -381.0
+offset_right = 407.0
+offset_bottom = -39.0
+theme_override_font_sizes/font_size = 150
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3218a")
+volume_db = -10.884
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
